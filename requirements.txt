@@ -1,0 +1,37 @@
+# Core Framework & Orchestration
+langchain
+langgraph
+langchain-openai
+langchain-anthropic
+pydantic
+python-dotenv
+pyyaml
+
+# API Server
+fastapi
+uvicorn[standard]
+
+# Data Processing & RAG (Retrieval-Augmented Generation)
+chromadb
+sentence-transformers
+langchain-text-splitters
+numpy
+scikit-learn # For Isotonic Regression for confidence scoring
+
+# Fine-tuning & Model Serving
+# These are needed for the scripts that fine-tune the Small Language Models (SLMs)
+transformers
+datasets
+torch
+accelerate
+bitsandbytes # For memory-efficient training (QLoRA)
+peft # Parameter-Efficient Fine-Tuning library from Hugging Face
+
+# Observability
+langsmith
+
+# --- Development & Notebooks ---
+# These are often kept in a separate requirements-dev.txt,
+# but are included here for simplicity.
+jupyterlab
+notebook
