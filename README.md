@@ -115,3 +115,44 @@ result = extractor.extract(
 
 # 4. Print the results
 print(json.dumps(result, indent=2))
+
+## Via API
+Start the FastAPI server:
+
+Bash
+
+uvicorn api.main:app --reload
+Send a POST request to the /extract endpoint using a tool like curl or Postman.
+
+Bash
+
+curl -X POST [http://127.0.0.1:8000/extract](http://127.0.0.1:8000/extract) \
+-H "Content-Type: application/json" \
+-d '{
+    "document_text": "The invoice is for \$500, due on Dec 25, 2025. The vendor is Acme Corp.",
+    "json_schema": {
+        "type": "object",
+        "properties": {
+            "vendor_name": {"type": "string"},
+            "total_amount": {"type": "number"},
+            "due_date": {"type": "string", "format": "date"}
+        }
+    }
+}'
+##🤝 Contributing
+Contributions are welcome! If you'd like to contribute, please follow these steps:
+
+Fork the repository.
+
+Create a new branch (git checkout -b feature/your-feature-name).
+
+Make your changes.
+
+Commit your changes (git commit -m 'Add some amazing feature').
+
+Push to the branch (git push origin feature/your-feature-name).
+
+Open a Pull Request.
+
+##📄 License
+This project is licensed under the MIT License. See the LICENSE file for details.
