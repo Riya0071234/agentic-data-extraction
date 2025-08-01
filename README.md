@@ -115,16 +115,16 @@ result = extractor.extract(
 
 # 4. Print the results
 print(json.dumps(result, indent=2))
-
+```
 ## Via API
 Start the FastAPI server:
 
-Bash
+```Bash
 
 uvicorn api.main:app --reload
 Send a POST request to the /extract endpoint using a tool like curl or Postman.
-
-Bash
+```
+```Bash
 
 curl -X POST [http://127.0.0.1:8000/extract](http://127.0.0.1:8000/extract) \
 -H "Content-Type: application/json" \
@@ -139,6 +139,7 @@ curl -X POST [http://127.0.0.1:8000/extract](http://127.0.0.1:8000/extract) \
         }
     }
 }'
+```
 ##🤝 Contributing
 Contributions are welcome! If you'd like to contribute, please follow these steps:
 
