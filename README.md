@@ -25,7 +25,7 @@ The **Hierarchical Agentic Schema-Task Decomposition (HASTD)** framework represe
 
 The HASTD framework deconstructs a complex extraction problem into a manageable, multi-stage workflow orchestrated by a team of specialized AI agents.
 
-![HASTD Architecture Diagram](./docs/assets/architecture.png)
+![HASTD Architecture Diagram](https://drive.google.com/file/d/1W-Y5EA3HkRcmFOumqLblAwJ0_snQc7dw/view?usp=drive_link)
 
 ---
 
@@ -56,7 +56,7 @@ Follow these instructions to set up and run the HASTD framework on your local ma
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/your-username/hastd-extraction.git](https://github.com/your-username/hastd-extraction.git)
+    git clone (https://github.com/Riya0071234/agentic-data-extraction.git)
     cd hastd-extraction
     ```
 
