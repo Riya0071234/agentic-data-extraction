@@ -116,7 +116,9 @@ result = extractor.extract(
 # 4. Print the results
 print(json.dumps(result, indent=2))
 ```
-## Via API
+---
+
+##  Via API
 Start the FastAPI server:
 
 ```Bash
@@ -140,20 +142,24 @@ curl -X POST [http://127.0.0.1:8000/extract](http://127.0.0.1:8000/extract) \
     }
 }'
 ```
-##🤝 Contributing
+---
+
+## 🤝 Contributing
 Contributions are welcome! If you'd like to contribute, please follow these steps:
 
-Fork the repository.
+1. Fork the repository.
 
-Create a new branch (git checkout -b feature/your-feature-name).
+2. Create a new branch (git checkout -b feature/your-feature-name).
 
-Make your changes.
+3. Make your changes.
 
-Commit your changes (git commit -m 'Add some amazing feature').
+4. Commit your changes (git commit -m 'Add some amazing feature').
 
-Push to the branch (git push origin feature/your-feature-name).
+5. Push to the branch (git push origin feature/your-feature-name).
 
-Open a Pull Request.
+6. Open a Pull Request.
 
-##📄 License
+---
+
+## 📄 License
 This project is licensed under the MIT License. See the LICENSE file for details.
