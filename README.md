@@ -9,6 +9,88 @@ A Hierarchical Agentic approach for high-fidelity structured data extraction fro
 
 The **Hierarchical Agentic Schema-Task Decomposition (HASTD)** framework represents a paradigm shift from monolithic prompting to a structured, resilient, and scalable agentic architecture for data extraction. It excels where traditional LLM pipelines fail, especially with large documents and complex JSON schemas.
 
+Status: ✅ Minimal Working POC Complete (Self-Correcting Agentic Loop)
+Next Milestone: Modular Agent Framework, RAG Integration
+
+---
+
+# 📌 Overview
+
+The HASTD Framework offers a scalable and fault-tolerant system for high-fidelity structured extraction from unstructured data using a modular, agentic approach powered by LangGraph.
+
+---
+
+# ✨ Highlights So Far
+
+✅ LangGraph Agentic Loop: Implemented a self-correcting multi-agent cycle (Extractor → Validator → Corrector).
+
+✅ Pydantic Schema Validation: Validates outputs against real-world schemas (e.g. GitHub Actions).
+
+✅ Schema Parser: Parses JSON schemas into field-level extraction tasks (early DAG generation logic).
+
+✅ Modular Codebase: Organized under src/hastd/core, future-ready for multi-agent orchestration.
+
+---
+## 🚀 How to Run the POC
+```bash
+
+# Step 1: Clone the repository
+git clone https://github.com/Riya0071234/agentic-data-extraction.git
+cd agentic-data-extraction
+
+# Step 2: Set up the environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+
+# Step 3: Set your OpenAI key
+echo OPENAI_API_KEY="sk-..." > .env
+
+# Step 4: Run the proof of concept script
+python run_poc.py
+```
+---
+
+# 💡 Example: What This Script Does
+
+Given an unstructured text file like:
+```kotlin
+The contact is Jane Doe. Her email is jane@example.com and her user ID is 12345.
+```
+And a JSON schema that expects name, email, and user_id, it will:
+
+1. Extract the fields using GPT-4o
+
+2. Validate them using Pydantic
+
+3. If invalid (e.g., wrong type or format), automatically attempt to fix them via the correction agent
+
+4. Return structured JSON output + confidence report
+
+---
+# 🧭 Current Structure
+```bash
+├── run_poc.py               # Main entry point: Proof-of-concept agentic loop
+└── src/
+    └── hastd/
+        ├── core/
+        │   ├── models.py              # Model registry + test schemas
+        │   ├── schema_parser.py       # Task decomposition from schema
+        │   └── github_model.py        # Pydantic model matching github_actions_schema.json
+
+```
+
+---
+# 🔮 Next Milestones
+Goal	Description
+📁 Agent Modularization	Move extractor, validator, corrector agents into src/hastd/agents/
+📚 RAG Integration	Chunk large documents, store in Vector DB (Chroma), route relevant chunks to extractors
+🧠 Fine-tuning	Add SLM extractors (e.g., Llama 3 8B) for cost-efficient large-scale inference
+🔄 DAG Execution	Transform schema → DAG of extraction tasks → graph traversal
+🧑‍💻 FastAPI Server	Serve extraction as a clean endpoint (/extract)
+🧪 Confidence Scores	Implement field-level isotonic regression confidence calibration
+🧰 HITL UI (Stretch)	Flag low-confidence fields in a frontend for human review
+
 ---
 
 ## ✨ Key Features
@@ -83,65 +165,6 @@ Follow these instructions to set up and run the HASTD framework on your local ma
         LANGCHAIN_API_KEY="..." # For LangSmith tracing
         ```
 
----
-
-## ⚡ Quick Start: Usage
-
-The HASTD framework can be run as a library or through its FastAPI server.
-
-### As a Library
-
-Import the `HASTDExtractor` class, initialize it, and call the `.extract()` method.
-
-```python
-from hastd import HASTDExtractor
-import json
-
-# 1. Initialize the extractor
-extractor = HASTDExtractor()
-
-# 2. Define your inputs
-with open("data/samples/document_1.txt", "r") as f:
-    unstructured_text = f.read()
-
-with open("data/samples/schema_1.json", "r") as f:
-    json_schema = json.load(f)
-
-# 3. Run the extraction process
-result = extractor.extract(
-    document_content=unstructured_text,
-    json_schema=json_schema
-)
-
-# 4. Print the results
-print(json.dumps(result, indent=2))
-```
----
-
-##  Via API
-Start the FastAPI server:
-
-```Bash
-
-uvicorn api.main:app --reload
-Send a POST request to the /extract endpoint using a tool like curl or Postman.
-```
-```Bash
-
-curl -X POST [http://127.0.0.1:8000/extract](http://127.0.0.1:8000/extract) \
--H "Content-Type: application/json" \
--d '{
-    "document_text": "The invoice is for \$500, due on Dec 25, 2025. The vendor is Acme Corp.",
-    "json_schema": {
-        "type": "object",
-        "properties": {
-            "vendor_name": {"type": "string"},
-            "total_amount": {"type": "number"},
-            "due_date": {"type": "string", "format": "date"}
-        }
-    }
-}'
-```
 ---
 
 ## 🤝 Contributing
