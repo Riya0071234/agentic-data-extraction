@@ -31,7 +31,7 @@ The **Hierarchical Agentic Schema-Task Decomposition (HASTD)** framework represe
 
 The HASTD framework deconstructs a complex extraction problem into a manageable, multi-stage workflow orchestrated by a team of specialized AI agents.
 
-![HASTD Architecture Diagram](./docs/assets/architecture.png)
+![HASTD Architecture Diagram](https://drive.google.com/file/d/1W-Y5EA3HkRcmFOumqLblAwJ0_snQc7dw/view?usp=sharing)
 
 ---
 
