@@ -1,37 +1,34 @@
 # Core Framework & Orchestration
-langchain
-langgraph
-langchain-openai
-langchain-anthropic
-pydantic
-python-dotenv
-pyyaml
+langchain>=0.1.14
+langgraph>=0.0.26
+langchain-openai>=0.1.0
+langchain-anthropic>=0.1.4
+pydantic>=2.6.0
+python-dotenv>=1.0.1
+pyyaml>=6.0.1
 
 # API Server
-fastapi
-uvicorn[standard]
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0
 
 # Data Processing & RAG (Retrieval-Augmented Generation)
-chromadb
-sentence-transformers
-langchain-text-splitters
-numpy
-scikit-learn # For Isotonic Regression for confidence scoring
+chromadb>=0.4.22
+sentence-transformers>=2.2.2
+langchain-text-splitters>=0.0.2
+numpy>=1.24.0
+scikit-learn>=1.4.0  # for isotonic regression or confidence scoring
 
 # Fine-tuning & Model Serving
-# These are needed for the scripts that fine-tune the Small Language Models (SLMs)
-transformers
-datasets
-torch
-accelerate
-bitsandbytes # For memory-efficient training (QLoRA)
-peft # Parameter-Efficient Fine-Tuning library from Hugging Face
+transformers>=4.41.0
+datasets>=2.18.0
+torch>=2.2.0
+accelerate>=0.29.3
+bitsandbytes>=0.42.0
+peft>=0.10.0
 
 # Observability
-langsmith
+langsmith>=0.1.21
 
 # --- Development & Notebooks ---
-# These are often kept in a separate requirements-dev.txt,
-# but are included here for simplicity.
-jupyterlab
-notebook
+jupyterlab>=4.1.0
+notebook>=7.2.0
